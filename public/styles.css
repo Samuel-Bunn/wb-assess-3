@@ -7,6 +7,7 @@ h1 {
   font-family: sans-serif;
 }
 
+
 img {
   height: 200px;
   width: 200px;
@@ -19,8 +20,14 @@ img.centered {
 
 .fossil-div {
   display: inline-block;
+  display: flex;
+  flex-direction: row;
   padding: 10px;
   width: 205px;
+}
+
+.fossil-card {
+  margin-right: 20px;
 }
 
 .fossil-div img {
