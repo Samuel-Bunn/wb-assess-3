@@ -70,7 +70,7 @@ app.get('/', (req,res) => {
 
 app.post('/get-name', (req,res) => {
   const user = req.body.name
-  req.session.name = req.body.name
+  req.session.name = user
   res.redirect('/top-fossils')
 })
 
@@ -83,11 +83,18 @@ app.get('/top-fossils', (req,res) => {
 })
 
 app.post('/like-fossil'), (req,res) => {
-  let fossilCount = document.getElementsByName('like-fossil')
-  fossilCount.addEventListener('submit', (evt) => {
-    fossil.num_likes++
-  })
-  res.render('/thank-you.html.njk')
+  // let fossilCount = document.getElementsByName('like-fossil')
+  // fossilCount.addEventListener('submit', (evt) => {
+  //   MOST_LIKED_FOSSILS.Object.num_likes++
+  // })
+  // get the value of the input data
+  // figure out which fossil is supposed to get the like
+  // access the most liked fosssils object in this file
+  // increase the like count of that fossil by one
+  // redirect to thank you page
+  
+  MOST_LIKED_FOSSILS[req.body.submit]++
+  res.redirect('/thank-you.html.njk')
 }
 
 
