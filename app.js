@@ -82,20 +82,12 @@ app.get('/top-fossils', (req,res) => {
 }
 })
 
-app.post('/like-fossil'), (req,res) => {
-  // let fossilCount = document.getElementsByName('like-fossil')
-  // fossilCount.addEventListener('submit', (evt) => {
-  //   MOST_LIKED_FOSSILS.Object.num_likes++
-  // })
-  // get the value of the input data
-  // figure out which fossil is supposed to get the like
-  // access the most liked fosssils object in this file
-  // increase the like count of that fossil by one
-  // redirect to thank you page
-  
-  MOST_LIKED_FOSSILS[req.body.submit]++
-  res.redirect('/thank-you.html.njk')
-}
+app.post('/like-fossil', (req,res) => {
+  MOST_LIKED_FOSSILS[req.body.likeFossil].num_likes = MOST_LIKED_FOSSILS[req.body.likeFossil].num_likes + 1
+  res.render('thank-you.html.njk',{
+    user: req.session.name
+  })
+})
 
 
 app.get('/random-fossil.json', (req, res) => {
